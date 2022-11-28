@@ -256,6 +256,14 @@ public class Game extends AnimationTimer {
         }
     }
 
+    public void speedUp() {
+        levelTime -= 10000;
+
+        if (levelTime < 10000) {
+            levelTime = 0;
+        }
+    }
+
     public void setPlayer(String player) {
         userName = player;
     }

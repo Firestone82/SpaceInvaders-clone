@@ -40,4 +40,8 @@ public class Score extends Entity implements Drawable {
     public int getPoints() {
         return points;
     }
+
+    public void resetPoints() {
+        this.points = 0;
+    }
 }

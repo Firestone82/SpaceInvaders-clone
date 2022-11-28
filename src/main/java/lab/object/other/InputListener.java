@@ -7,9 +7,8 @@ import lab.enums.GameState;
 import lab.enums.Source;
 import lab.object.Game;
 import lab.object.controller.list.MenuController;
-import lab.object.entity.list.Ship;
-import lab.object.entity.list.ShipBullet;
-import lab.object.entity.list.UFO;
+import lab.object.controller.list.ScoreController;
+import lab.object.entity.list.*;
 
 public class InputListener {
     private final App app;
@@ -26,7 +25,32 @@ public class InputListener {
 
     public void fire(KeyEvent event) {
         switch (event.getCode()) {
-            case NUMPAD1 -> {
+            case NUMPAD3, DIGIT3 -> {
+                if (event.getEventType() == KeyEvent.KEY_PRESSED) {
+                    press = true;
+                } else if (event.getEventType() == KeyEvent.KEY_RELEASED && press) {
+                    game.speedUp();
+
+                    System.out.println("Ghosts speeded up!");
+
+                    press = false;
+                }
+            }
+
+            case NUMPAD2, DIGIT2 ->  {
+                if (event.getEventType() == KeyEvent.KEY_PRESSED) {
+                    press = true;
+                } else if (event.getEventType() == KeyEvent.KEY_RELEASED && press) {
+                    ScoreController scoreController = app.getMainController().getScoreController();
+                    scoreController.clearScore();
+
+                    System.out.println("Score Database Was Cleared!");
+
+                    press = false;
+                }
+            }
+
+            case NUMPAD1, DIGIT1 -> {
                 if (event.getEventType() == KeyEvent.KEY_PRESSED) {
                     press = true;
                 } else if (event.getEventType() == KeyEvent.KEY_RELEASED && press) {
@@ -34,6 +58,8 @@ public class InputListener {
 
                     if (ufo.isDisabled()) {
                         ufo.execute();
+
+                        System.out.println("UFO Forced to go!");
                     }
 
                     press = false;
@@ -96,6 +122,23 @@ public class InputListener {
                     direction = Direction.NONE;
                 }
             }
+
+//            default -> {
+//                if (event.getEventType() == KeyEvent.KEY_PRESSED) {
+//                    press = true;
+//                } else if (event.getEventType() == KeyEvent.KEY_RELEASED && press) {
+//                    if (app.getMainController().getState() == GameState.OVER) {
+//                        app.getMainController().changeState(GameState.MENU);
+//
+//                        ((Score) game.getObject(Source.SCORE)).resetPoints();
+//                        ((Lives) game.getObject(Source.LIVES)).removeLive();
+//                        game.addBlocks();
+//                        game.addGhosts();
+//                    }
+//
+//                    press = false;
+//                }
+//            }
         }
     }
 

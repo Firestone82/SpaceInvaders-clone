@@ -84,7 +84,8 @@ public class Ghost extends Entity implements Drawable {
                 }
             }
 
-            if (Utils.getRandom(((totalGhostCount - aliveGhostCount) * 50) + (100 * (int) ((System.currentTimeMillis() - game.getLevelTime()) / 5000F)), totalGhostCount * 100) == totalGhostCount * 100) {
+            int random = (((totalGhostCount - aliveGhostCount) * 50) + (100 * (int) ((System.currentTimeMillis() - game.getLevelTime()) / 5000F)));
+            if (Utils.getRandom(Math.min(random, 0), totalGhostCount * 100) == totalGhostCount * 100) {
                 game.getEntities().add(new AlienBullet(game, Source.ALIEN_BULLET, new Point2D(position.getX(), position.getY())));
             }
         }

@@ -1,6 +1,7 @@
 package lab.object.controller.list;
 
 import lab.App;
+import lab.interfaces.Controller;
 import lab.object.GameScore;
 import lab.object.controller.MainController;
 
@@ -42,8 +43,6 @@ public class ScoreController {
     }
 
     public void saveScore() {
-        System.out.println("save db");
-
         try (Connection connection = mainController.getDatabaseController().getConnection()) {
             PreparedStatement ps = connection.prepareStatement("REPLACE INTO Scores (player, score, timeMilis) VALUES (?, ?, ?)");
 
@@ -60,8 +59,6 @@ public class ScoreController {
     }
 
     public void saveScore(String player, GameScore score) {
-        System.out.println("save "+ player);
-
         if (list.containsKey(player)) {
             GameScore oldScore = list.get(player);
 
@@ -70,6 +67,16 @@ public class ScoreController {
             }
         } else {
             list.put(player, score);
+        }
+    }
+
+    public void clearScore() {
+        list.clear();
+
+        try (Connection connection = mainController.getDatabaseController().getConnection()) {
+            PreparedStatement ps = connection.prepareStatement("DELETE FROM Scores");
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

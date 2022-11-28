@@ -20,6 +20,7 @@ public class MenuController implements Controller {
     @FXML TextField userNameInput;
     private Scene scene;
 
+    @Override
     public void init(App app, Pane pane) {
         this.app = app;
         this.pane = pane;
