@@ -3,7 +3,6 @@ module lab {
     requires javafx.fxml;
     requires javafx.base;
     requires java.sql;
-    requires sqlite.jdbc;
 
     opens lab to javafx.fxml;
     opens lab.enums to javafx.fxml;
