@@ -1,36 +1,55 @@
-# Project for Java I & II (Clone of Space Invaders)
+# SpaceInvaders-clone
 
-## Project Theme
-The project will be an copy of retro game called Space Invaders [URL](https://cs.wikipedia.org/wiki/Space_Invaders)
-Project aims to implement all necessary points given my teacher.
+> **VŠB-TUO** — School project · Java I & II
 
-## Points to implement
+![Java](https://img.shields.io/badge/Java-17%2B-orange) ![Maven](https://img.shields.io/badge/Build-Maven-blue)
 
-### Java I 
-* When coding, adhere to the conventions for writing in the Java language (revised version - https://www.scribd.com/doc/15884743/Java-Coding-Style-by-Achut-Reddy), and you can use the settings of the provided workspace (workspace-template.zip), which has automatic formatting enabled.
-* Static methods and variables should NOT be used except for helper functions and constants - their use should be consulted with the instructor.
-* The project will include the use of interfaces, collections, and working with I/O streams.
-* Objects will be worked with via the most general type/interface, not a specific class.
-* A mandatory part of the project evaluation will be its defense, during which you will be able to explain the fundamental aspects of the project to the instructor.
-* Complete the project within the scope and quality commensurate with your abilities - functionality is more important than 100% perfection and adherence to the original.
+A two-semester recreation of the classic Space Invaders arcade game. The Java I phase delivers core gameplay with OOP design, interfaces, and collections. The Java II extension wraps it in a client-server REST architecture with JPA persistence, log4j2 logging, CompletableFuture concurrency, multilingual support, Lombok, and Maven packaging.
 
-### Java II
-* Modify the project from the subject "Programming in Java 1" or create a new one in such a way that the application:
-  * has a client-server architecture, combined with a REST architecture;
-  * contains persistent data stored using JPA;
-  * creates logs to both a file and the console, using log4j2;
-  * addresses the issue of concurrency using CompletableFuture;
-  * supports multilingualism;
-  * uses Lombok;
-  * works with date and time or with money;
-  * uses streams and lambda expressions;
-  * can be built using the Maven tool and the resulting build creates an executable jar or its equivalent.
+<p align="center">
+  <img src="assets/MainMenu.png" alt="Main Menu" width="32%">
+  <img src="assets/Game.png" alt="Gameplay" width="32%">
+  <img src="assets/Leaderboard.png" alt="Leaderboard" width="32%">
+</p>
 
-## Requirements:
-- Java17+
-- Maven
+## Features
 
-## Images
-![Menu](./assets/MainMenu.png)
-![Leaderboard](./assets/Leaderboard.png)
-![Game](./assets/Game.png)
+- Classic Space Invaders gameplay
+- Client-server architecture via REST
+- Persistent leaderboard via JPA
+- Console and file logging with log4j2
+- Async processing with CompletableFuture
+- Multilingual support (i18n)
+- Executable JAR via Maven
+
+## Requirements
+
+- Java 17+
+- Maven 3.x
+
+## Setup
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Firestone82/SpaceInvaders-clone.git
+   cd SpaceInvaders-clone
+   ```
+
+2. Build:
+   ```bash
+   mvn clean package -DskipTests
+   ```
+
+3. Start the server:
+   ```bash
+   java -jar target/*-server.jar
+   ```
+
+4. Start the client (separate terminal):
+   ```bash
+   java -jar target/*-client.jar
+   ```
+
+## License
+
+This project was created as a school assignment at VŠB-TUO.
