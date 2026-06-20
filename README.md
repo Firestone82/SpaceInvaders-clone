@@ -4,9 +4,13 @@
 
 ![Java](https://img.shields.io/badge/Java-17%2B-orange) ![Maven](https://img.shields.io/badge/Build-Maven-blue)
 
-## About
+A two-semester recreation of the classic Space Invaders arcade game. The Java I phase delivers core gameplay with OOP design, interfaces, and collections. The Java II extension wraps it in a client-server REST architecture with JPA persistence, log4j2 logging, CompletableFuture concurrency, multilingual support, Lombok, and Maven packaging.
 
-A two-semester recreation of the classic Space Invaders arcade game at VŠB-TUO. The Java I phase delivers core gameplay using OOP design, interfaces, and collections. The Java II extension wraps it in a client-server REST architecture, JPA persistence, log4j2 logging, CompletableFuture concurrency, multilingual support (i18n), Lombok, and Maven packaging.
+<p align="center">
+  <img src="assets/MainMenu.png" alt="Main Menu" width="32%">
+  <img src="assets/Game.png" alt="Gameplay" width="32%">
+  <img src="assets/Leaderboard.png" alt="Leaderboard" width="32%">
+</p>
 
 ## Features
 
